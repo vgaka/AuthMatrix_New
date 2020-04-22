@@ -118,10 +118,7 @@ namespace AuthMatrix
             IFirebaseClient client = new FirebaseClient(config);
             FirebaseResponse response = client.Get("");
             JObject o = JObject.Parse(response.Body);
-            /* 3 columns
-            dt.Columns.Add("#");
-            dt.Columns.Add("Activities");
-            dt.Columns.Add("Action By");*/
+            
             // Add Responsibility columns
             dt.Columns.Add("#");
             dt.Columns.Add("Activities");
@@ -153,7 +150,7 @@ namespace AuthMatrix
                 foreach (JProperty n2 in o[n1])
                 {
                     //List<string> l3 = ((JObject)o[n1]["Task"]).Properties().Select(p => p.Name).ToList();
-                    //foreach (JProperty n3 in o[n1][n2.Name]["Task"])
+                    
                     foreach (JProperty n3 in o[n1][n2.Name])
                     {
                         foreach (JProperty n4 in o[n1][n2.Name][n3.Name])
